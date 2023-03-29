@@ -21,4 +21,4 @@ Maybe you want to work as a developer? Then you are in the right place. In this 
 
 C# is one of the few programming languages which allows you to create amazing cross-platform Mobile Apps, Games, and PC Programs. 
 
-Bringing an Idea to life is one of the best feelings one can have, but the path to get there is often full of challenges. So I have created a course that makes this path as easy as possible all with the help of c# so that you become a skilled c# developer! [Course](https://www.udemy.com/course/complete-csharp-masterclass
+Bringing an Idea to life is one of the best feelings one can have, but the path to get there is often full of challenges. So I have created a course that makes this path as easy as possible all with the help of c# so that you become a skilled c# developer! [Course](https://www.udemy.com/course/complete-csharp-masterclass)
