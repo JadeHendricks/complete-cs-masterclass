@@ -3,7 +3,7 @@ Learn C# Programming - WPF, Databases, Linq, Collections, Game Development with 
 
 ## Udemy Course
 ```bash
-[Link to the course](https://github.com/JadeHendricks/react-moviedb](https://www.udemy.com/course/complete-csharp-masterclass/)
+[Link to the course](https://www.udemy.com/course/complete-csharp-masterclass/)
 1. Learn the fundamentals of programming using C#
 2. Learn how to use variables, methods, loops, conditions
 3. Fully understand how OOP (object oriented Programming) works and how to use it.
