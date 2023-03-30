@@ -51,6 +51,30 @@ namespace Hello_World
 
             Console.WriteLine(fullName);
 
+            //Conversion
+            //Explicit Conversion
+            double myDouble = 13.37;
+            int myInt;
+
+            //casting double to int
+            //aka please make a int out of a double i.e 13
+            myInt = (int)myDouble;
+            Console.WriteLine(myInt);
+
+            //Implicit Conversion
+            //storing smaller values into bigger data types
+            int myInt2 = 11684164;
+            long bigNumber = myInt2;
+            float myFloat = 13.37f;
+            double myNewDouble = myFloat;
+
+            //Type Conversion
+            string myString = myDouble.ToString(); // "13.37"
+            string myString2 = myFloat.ToString();
+            bool sunIsShining = false;
+            string myString3 = sunIsShining.ToString();
+            Console.WriteLine(myString + " " + myString2 + " " + myString3);
+
             Console.Read();
 
         }
