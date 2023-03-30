@@ -1,5 +1,5 @@
 .git
 .vs
 /Hello World/.vs
-/Hello World/Hello World
+/Hello World/Hello World/bin
 /Hello World/Hello World/obj/debug
