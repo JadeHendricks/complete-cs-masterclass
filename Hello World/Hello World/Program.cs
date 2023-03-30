@@ -75,6 +75,17 @@ namespace Hello_World
             string myString3 = sunIsShining.ToString();
             Console.WriteLine(myString + " " + myString2 + " " + myString3);
 
+            //parsing a string to a integer
+            string myString4 = "15";
+            string myString5 = "13";
+            int number1 = Int32.Parse(myString4);
+            int number2 = Int32.Parse(myString5);
+            string result1 = myString4 + myString5;
+            int result2 = number1 + number2;
+
+            Console.WriteLine(result1);
+            Console.WriteLine(result2);
+
             Console.Read();
 
         }
