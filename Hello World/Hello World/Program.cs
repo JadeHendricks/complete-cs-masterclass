@@ -78,6 +78,7 @@ namespace Hello_World
             //parsing a string to a integer
             string myString4 = "15";
             string myString5 = "13";
+            //Double.Parse();
             int number1 = Int32.Parse(myString4);
             int number2 = Int32.Parse(myString5);
             string result1 = myString4 + myString5;
@@ -86,6 +87,23 @@ namespace Hello_World
             Console.WriteLine(result1);
             Console.WriteLine(result2);
 
+            //String Manipulation
+            int age = 29;
+            string name = "Jade";
+
+            //string formatting
+            //string formatting uses indexing
+            Console.WriteLine("Hell my name is {0}, I am {1} years old", name, age);
+
+            //string interpolation
+            Console.WriteLine($"Hello my name is {name}, I am a {age} years old.");
+
+            //verbatim strings
+            //if you remove the @ here you will get an error because \a\u\d are not valid escape characters
+            Console.WriteLine(@"C:\User\Admin\Dog Pictures\Dog1\Super Cool Dog.png");
+            Console.WriteLine(@"Muhahaha \n you have no powers here");
+            //for example
+            Console.WriteLine("Muhahaha \n you have powers here");
             Console.Read();
 
         }
