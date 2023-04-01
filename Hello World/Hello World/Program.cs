@@ -8,6 +8,7 @@ namespace Hello_World
         const double PI = 3.14159265359;
         const int weeks = 52, months = 12;
         const int days = 365;
+        const string name111 = "Jimmy";
 
         //create a constant of type string with your birthday as its value
         const string birthday = "13 May 1993";
@@ -18,10 +19,14 @@ namespace Hello_World
             //changing the console colours
             //Console.ForegroundColor = ConsoleColor.White;
             //Console.BackgroundColor = ConsoleColor.DarkGreen;
-
+            Console.WriteLine("test " + name111.Length);
             //Method Calling
             WriteSomething();
             WriteSomethingSpecific("This is coming from a parameter passed to a method");
+            Console.WriteLine(Add(Add(1, 4), Add(5, 10)));
+            Console.WriteLine(Add(1, 4));
+            Console.WriteLine(Multiply(2, 5));
+            Console.WriteLine(Calculate());
 
             Console.WriteLine("Hello World!");
             // declaring a variable
@@ -151,6 +156,12 @@ namespace Hello_World
             //constants
             Console.WriteLine($"My birthday is always going to be: {0}", birthday);
 
+
+
+            //getting user input
+            string input = Console.ReadLine();
+            Console.WriteLine(input);
+
             Console.Read();
 
         }
@@ -163,6 +174,30 @@ namespace Hello_World
         public static void WriteSomethingSpecific(string myText)
         {
             Console.WriteLine(myText);
+        }
+
+        public static int Add(int num1, int num2)
+        {
+            return num1 + num2;
+        }
+
+        public static int Multiply(int num1, int num2)
+        {
+            return num1 * num2;
+        }
+
+        public static int Calculate()
+        {
+            Console.WriteLine("Please Enter the first number");
+            string userInput1 = Console.ReadLine();
+
+            Console.WriteLine("Please Enter the second number");
+            string userInput2 = Console.ReadLine();
+
+            int num1 = int.Parse(userInput1);
+            int num2 = int.Parse(userInput2);
+
+            return num1 + num2;
         }
     } 
 }
