@@ -104,6 +104,41 @@ namespace Hello_World
             Console.WriteLine(@"Muhahaha \n you have no powers here");
             //for example
             Console.WriteLine("Muhahaha \n you have powers here");
+
+
+            //challenege 1
+            string randomString;
+            Console.WriteLine("Please enter your name and press enter");
+            randomString = Console.ReadLine();
+            Console.WriteLine("To upper string " + randomString.ToUpper());
+            Console.WriteLine("To lower string " +  randomString.ToLower());
+            Console.WriteLine("Trimmed string " + randomString.Trim());
+
+            //challenge 2
+            string randomString2;
+            char characterToSearchFor;
+            int getIndex;
+            string namex;
+            string lastNamex;
+            string fullNamex;
+            Console.WriteLine("Enter a string here:");
+            randomString2 = Console.ReadLine();
+            Console.WriteLine("Enter the character to search:");
+            characterToSearchFor = Console.ReadLine()[0];
+            getIndex = randomString2.IndexOf(characterToSearchFor);
+            Console.WriteLine($"The index of {characterToSearchFor} inside of the text is {getIndex}");
+
+            Console.WriteLine("Now enter in your first name:");
+            namex = Console.ReadLine();
+            Console.WriteLine("Now enter in your last name:");
+            lastNamex = Console.ReadLine();
+
+            fullNamex = string.Concat(namex, " ", lastNamex);
+
+            Console.WriteLine($"Your name is {fullNamex}");
+
+
+
             Console.Read();
 
         }
