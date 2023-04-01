@@ -27,6 +27,8 @@ namespace Hello_World
             Console.WriteLine(Add(1, 4));
             Console.WriteLine(Multiply(2, 5));
             Console.WriteLine(Calculate());
+            //if statements
+            TryPassWithIfStatements();
 
             Console.WriteLine("Hello World!");
             // declaring a variable
@@ -157,7 +159,6 @@ namespace Hello_World
             Console.WriteLine($"My birthday is always going to be: {0}", birthday);
 
 
-
             //getting user input
             string input = Console.ReadLine();
             Console.WriteLine(input);
@@ -198,6 +199,39 @@ namespace Hello_World
             int num2 = int.Parse(userInput2);
 
             return num1 + num2;
+        }
+
+        public static void TryPassWithIfStatements()
+        {
+            Console.WriteLine("What's the weather like?");
+            string temperature = Console.ReadLine();
+            int numTemp;
+            //using trypass
+            int randomNumber;
+            //out tells the method where to store the value into
+            bool userEnteredANumber = int.TryParse(temperature, out randomNumber);
+            if (userEnteredANumber)
+            {
+                numTemp = randomNumber;
+            }
+            else
+            {
+                numTemp = 0;
+                Console.WriteLine("Value was incorrect, please set a number. O is the default.");
+            }
+
+            if (numTemp < 20)
+            {
+                Console.WriteLine("Take a coat.");
+            }
+            else if (numTemp == 20)
+            {
+                Console.WriteLine("Pants and pull over should be fine.");
+            }
+            else
+            {
+                Console.WriteLine("Shorts are enough today!");
+            }
         }
     } 
 }
