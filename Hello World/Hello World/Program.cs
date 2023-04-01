@@ -19,6 +19,10 @@ namespace Hello_World
             //Console.ForegroundColor = ConsoleColor.White;
             //Console.BackgroundColor = ConsoleColor.DarkGreen;
 
+            //Method Calling
+            WriteSomething();
+            WriteSomethingSpecific("This is coming from a parameter passed to a method");
+
             Console.WriteLine("Hello World!");
             // declaring a variable
             int num1;
@@ -119,7 +123,7 @@ namespace Hello_World
             Console.WriteLine("Please enter your name and press enter");
             randomString = Console.ReadLine();
             Console.WriteLine("To upper string " + randomString.ToUpper());
-            Console.WriteLine("To lower string " +  randomString.ToLower());
+            Console.WriteLine("To lower string " + randomString.ToLower());
             Console.WriteLine("Trimmed string " + randomString.Trim());
 
             //challenge 2
@@ -149,6 +153,16 @@ namespace Hello_World
 
             Console.Read();
 
+        }
+
+        public static void WriteSomething()
+        {
+            Console.WriteLine("I am called from a method");
+        }
+
+        public static void WriteSomethingSpecific(string myText)
+        {
+            Console.WriteLine(myText);
         }
     } 
 }
