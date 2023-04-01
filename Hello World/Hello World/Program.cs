@@ -4,6 +4,14 @@ namespace Hello_World
 {
     internal class Program
     {
+        //constants as fields
+        const double PI = 3.14159265359;
+        const int weeks = 52, months = 12;
+        const int days = 365;
+
+        //create a constant of type string with your birthday as its value
+        const string birthday = "13 May 1993";
+
         //entry point of our program
         static void Main(string[] args)
         {
@@ -134,10 +142,10 @@ namespace Hello_World
             lastNamex = Console.ReadLine();
 
             fullNamex = string.Concat(namex, " ", lastNamex);
-
             Console.WriteLine($"Your name is {fullNamex}");
 
-
+            //constants
+            Console.WriteLine($"My birthday is always going to be: {0}", birthday);
 
             Console.Read();
 

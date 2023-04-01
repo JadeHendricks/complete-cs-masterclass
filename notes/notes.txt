@@ -9,3 +9,7 @@ Console.WriteLine("TEXT") - prints and keeps the cursor on the next line.
 Console.Read() - Takes a single inut of type string and returns the ASCII value of that input.
 Console.ReadLine() - Takes a string or Integer input and returns it as the output value. (almost like a prompt that returns a value)
 Console.ReadKey() - Takes a single input of the type string and it returns the Key info. (leaves our console open)
+
+Cheatsheet
+============================================
+https://cheatography.com/laurence/cheat-sheets/c/
