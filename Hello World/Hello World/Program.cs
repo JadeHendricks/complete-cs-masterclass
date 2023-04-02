@@ -29,6 +29,8 @@ namespace Hello_World
             Console.WriteLine(Calculate());
             //if statements
             TryPassWithIfStatements();
+            NestedIfStatements();
+            SwitchCaseStatements();
 
             Console.WriteLine("Hello World!");
             // declaring a variable
@@ -231,6 +233,56 @@ namespace Hello_World
             else
             {
                 Console.WriteLine("Shorts are enough today!");
+            }
+        }
+    
+        public static void NestedIfStatements()
+        {
+            bool isAdmin = false;
+            bool isRegistered = true;
+            string userName = "";
+            Console.WriteLine("Please enter in your name:");
+            userName = Console.ReadLine();
+            if (isRegistered)
+            {
+                Console.WriteLine("Hi there, registered user");
+                if (userName != "")
+                {
+                    Console.WriteLine("Hi there {0}", userName);
+                    if (isAdmin)
+                    {
+                        Console.WriteLine("Hi there, Admin");
+                    }
+                }
+            }
+        }
+
+        public static void  SwitchCaseStatements()
+        {
+            int age = 25;
+            string username = "Denis";
+
+            switch (age)
+            {
+                case 10:
+                    Console.WriteLine("Too young to drink");
+                    break;
+                case 15: Console.WriteLine("Almost legally able to drink :)");
+                    break;
+                case 18: Console.WriteLine("Good to go!");
+                    break;
+                default: Console.WriteLine("How old are you then?");
+                    break;
+            }
+
+            switch (username)
+            {
+                case "Denis":
+                    Console.WriteLine("Hey Denis");
+                    break;
+                default:
+                    Console.WriteLine("You are not known!");
+                    break;
             }
         }
     } 
