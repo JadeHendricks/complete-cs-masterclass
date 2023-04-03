@@ -34,6 +34,10 @@ namespace OOP
 
             box.DisplayInfo();
 
+            //Members
+            Members member1 = new Members();
+            member1.Introducing(true);
+
             Console.Read();
         }
     }
