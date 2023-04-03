@@ -8,14 +8,11 @@ namespace OOP
         {
             //an instance of Human
             //aka creating an object from a classes blueprint
-            Human denis = new Human();
+            Human denis = new Human("Denis", "Freedman", "brown", 55);
+            Human micheal = new Human("Michael", "Johnson", "blue", 1);
 
-            //access public variable from outside
-            denis.firstName = "Denis";
             //call methods on the instance
             denis.IntroduceMySelf();
-
-            Human micheal = new Human();
             micheal.IntroduceMySelf();
 
             Console.Read();
