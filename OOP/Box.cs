@@ -10,12 +10,47 @@ namespace OOP
     {
         //member variables
         private int length = 3;
-        public int height;
+        private int height;
         public int width;
         public int volume;
 
+        public Box(int length, int height, int width)
+        {
+            this.length = length;
+            this.height = height;
+            Width = width;
+        }
+
+
+        //we do not need to have a member variable above with this way of doing it
+        public int Width { get; set; }
+
+        public int Height
+        {
+            get
+            {
+                return height;
+            }
+            set
+            {
+                if (value < 0)
+                {
+                    height = -value;
+                } 
+                else
+                {
+                    height = value;
+                }
+                
+            }
+        }
+
         public void SetLength(int length)
         {
+            if (length < 0)
+            {
+                throw new Exception("Length should be higher than 0");
+            }
             this.length = length;
         }
 
