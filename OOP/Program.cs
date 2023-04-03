@@ -19,6 +19,19 @@ namespace OOP
             micheal.IntroduceMySelf();
             joe.IntroduceMySelf();
 
+            //properties
+            Box box = new Box();
+            //changing the length of the box with a setter
+            box.SetLength(5);
+            box.height = 4;
+            box.width = 5;
+
+            //getting the values with a getter
+            Console.WriteLine("Box length is " + box.GetLength());
+            Console.WriteLine("Box volume is " + box.GetVolume());
+
+            box.DisplayInfo();
+
             Console.Read();
         }
     }
