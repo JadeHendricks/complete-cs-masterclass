@@ -38,6 +38,7 @@ namespace Collections
             Challenge();
             MultiDimensionalArrayExample();
             NestedForLoopsAnd2DArrays();
+            JaggedArraysExample();
 
             Console.Read();
         }
@@ -199,6 +200,62 @@ namespace Collections
                     }
                 }
             }
+
+            Console.WriteLine("*****************************************************");
+        }
+    
+        public static void JaggedArraysExample()
+        {
+            //basically an array in an array
+            //could be multiple arrays in one array
+            //in this case we are saying we want 3 arrays inside of the jagged array
+            int[][] jaggedArray = new int[3][];
+
+            jaggedArray[0] = new int[5];
+            jaggedArray[1] = new int[3];
+            jaggedArray[2] = new int[2];
+
+            jaggedArray[0] = new int[] { 1,2,3,4,5 };
+            jaggedArray[1] = new int[] { 1, 2, 3 };
+            jaggedArray[2] = new int[] { 1, 2 };
+
+            //alternative way of creating the same thing
+            int[][] jaggedArray2 = new int[][]
+            {
+                new int[] { 1, 2, 3, 4, 5 },
+                new int[] { 1, 2, 4, 5, 6 }
+            };
+
+            Console.WriteLine("JaggedArraysExample - this should be 4 : {0}", jaggedArray2[0][3]);
+            Console.WriteLine("JaggedArraysExample - this should be 6 : {0}", jaggedArray2[1][4]);
+
+            Console.WriteLine("*****************************************************");
+
+            //challenge - get all the values from the jagged array on the console
+            for(int i = 0; i < jaggedArray2.Length; i++)
+            {
+                Console.WriteLine("challege = Element {0}", i);
+                Console.WriteLine("*****************************************************");
+                for (int j = 0; j < jaggedArray2[i].Length; j++)
+                {
+                    Console.WriteLine("challege = Value {0}", jaggedArray2[i][j]);
+                }
+            }
+
+            Console.WriteLine("*****************************************************");
+
+            //challenge 2 - introduce someone from one family to another family
+            string[][] friendsAndFamilyArray = new string[][]
+            {
+                new string[] { "james", "jimmy" },
+                new string[] { "stacy", "carline" },
+                new string[] {"john", "austin" }
+            };
+
+            Console.WriteLine("Hi {0}, I would like to introduce {1} to you", friendsAndFamilyArray[0][0], friendsAndFamilyArray[1][0]);
+            Console.WriteLine("Hi {0}, I would like to introduce {1} to you", friendsAndFamilyArray[1][1], friendsAndFamilyArray[2][1]);
+            Console.WriteLine("*****************************************************");
+
         }
     }
 }
