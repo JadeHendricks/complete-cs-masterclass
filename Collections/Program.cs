@@ -37,6 +37,7 @@ namespace Collections
             ForEachArraysExample();
             Challenge();
             MultiDimensionalArrayExample();
+            NestedForLoopsAnd2DArrays();
 
             Console.Read();
         }
@@ -50,6 +51,8 @@ namespace Collections
                 nums[i] = i;
                 Console.WriteLine("FOR LOOP - Element{0} = {1}", i, nums[i]);
             }
+
+            Console.WriteLine("*****************************************************");
         }
 
         public static void ForEachArraysExample()
@@ -62,6 +65,8 @@ namespace Collections
                 Console.WriteLine("FOREACH LOOP - Element{0} = {1}", counter, i);
                 counter++;
             }
+
+            Console.WriteLine("*****************************************************");
         }
 
         //course challenge
@@ -92,8 +97,15 @@ namespace Collections
                 { 7,8,9 }   //row 3
             };
 
+            Console.WriteLine("*****************************************************");
+
             Console.WriteLine("Centeral value inside of the 2d array is {0}", array2D[1,1]); //in the first row I want position 1 (starts at 0 index)
+
+            Console.WriteLine("*****************************************************");
+
             Console.WriteLine("The 7th value is {0}", array2D[2,0]);
+
+            Console.WriteLine("*****************************************************");
 
             //three dimensional array
             string[,,] array3D = new string[,,]
@@ -110,6 +122,8 @@ namespace Collections
 
             Console.WriteLine("The 4th value is {0}", array3D[0, 1, 0]); //first nested array, 2nd row, first value
 
+            Console.WriteLine("*****************************************************");
+
             //another way of initialzing a 2d array
             //3 rows and 2 entries per row
             string[,] array2DString = new string[3, 2]
@@ -123,9 +137,13 @@ namespace Collections
 
             Console.WriteLine("This should output 'chicken' = {0}", array2DString[1,1]);
 
+            Console.WriteLine("*****************************************************");
+
             //finding out how many dimensions and array has
             int dimensions = array2DString.Rank; //rank gets the number of dimensions of an array
             Console.WriteLine("array2DString has {0} dimensions", dimensions);
+
+            Console.WriteLine("*****************************************************");
 
             //creating a multidimension array without add it's rank
             int[,] array2D2 = { 
@@ -134,6 +152,53 @@ namespace Collections
             };
 
             Console.WriteLine("array2D2 - this should give me 3 - {0}", array2D2[1, 0]);
+
+            Console.WriteLine("*****************************************************");
+        }
+
+        //have to make it static as you cannot use a non static item in a static method
+        static int[,] matrix =
+        {
+            { 1, 2, 3 },
+            { 4, 5, 6 },
+            { 7, 8, 9 }
+        };
+
+        public static void NestedForLoopsAnd2DArrays()
+        {
+            //goes through all the times in the array
+            foreach (int item in matrix)
+            {
+                Console.WriteLine("foreach - " + item + " ");
+            }
+
+            Console.WriteLine("*****************************************************");
+
+            Console.WriteLine("This is our 2D array printed using the nested for loop");
+
+            //getLength is used to get the dimension of the array you want to itterate over
+            //same thing as forEach loop, but now we have access to all the values and can use/change them on the fly
+            for(int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    Console.WriteLine("nestedFor - " + matrix[i,j] + " ");
+                }
+            }
+
+            Console.WriteLine("*****************************************************");
+
+            //challenge - only print out the odd numbers
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (matrix[i, j] % 2 != 0)
+                    {
+                        Console.WriteLine("nestedForChallenge - " + matrix[i, j] + " ");
+                    }
+                }
+            }
         }
     }
 }
