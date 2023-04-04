@@ -50,6 +50,17 @@ namespace Collections
             int[] happinessArray = new int[] { 1, 2, 3, 4, 5 };
             ArraysAsParamsExampleChallenge(happinessArray);
 
+            ParamsKeywordExample(); //this will continue to run even though our method is looking for an array - params
+            ParamsKeywordExample("hello", "my", "name", "is", "Jeff"); //this will work too, the param allows 0 or unlimited params.
+
+
+            int min = RealWorldExampleWithParams(6,4,5,7,8,0,1,5);
+            int min2 = RealWorldExampleWithParams(-11, 4, 5, 7, 8, 0, 1, 5);
+            Console.WriteLine("The minimum is :{0} ", min);
+            Console.WriteLine("The minimum is :{0} ", min2);
+            Console.WriteLine("*****************************************************");
+
+
             Console.Read();
         }
 
@@ -283,6 +294,8 @@ namespace Collections
             return average;
         }
     
+        //challenge
+        //add +2 to each item in the aray that is passed into the method
         public static void ArraysAsParamsExampleChallenge(int[] x)
         {
             for(int i = 0; i < x.Length; i++)
@@ -292,5 +305,36 @@ namespace Collections
             }
             Console.WriteLine("*****************************************************");
         }
+
+        //the param keyword allows 0 or unlimited params to be passed down without crashing.
+        public static void ParamsKeywordExample(params string[] sentence)
+        {
+            for (int i = 0; i < sentence.Length; i++)
+            {
+                Console.Write(sentence[i] + " ");
+            }
+            Console.WriteLine("*****************************************************");
+        }
+
+        //get the lowest number from the params passed
+        public static int RealWorldExampleWithParams(params int[] numbers)
+        {
+            //checking to make sure the number is within bounds
+            int min = int.MaxValue;
+
+            foreach (int number in numbers)
+            {
+                //if number is less than 2147483647
+                //setting the min to the lowest number until we get the lowest number set to min to return
+                if (number < min)
+                {
+                    min = number;
+                }
+
+                
+            }
+            return min;
+        }
+        
     }
 }
