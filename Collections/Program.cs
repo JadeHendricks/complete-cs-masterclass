@@ -40,6 +40,16 @@ namespace Collections
             NestedForLoopsAnd2DArrays();
             JaggedArraysExample();
 
+            int[] studentsGrades = new int[] { 15, 13, 12, 8, 6 };
+            double averageResult = ArraysAsParamsExample(studentsGrades);
+
+            Console.WriteLine($"The average result of the grades are {averageResult}");
+            Console.WriteLine("*****************************************************");
+
+            //challenge - ArraysAsParamsExampleChallenge
+            int[] happinessArray = new int[] { 1, 2, 3, 4, 5 };
+            ArraysAsParamsExampleChallenge(happinessArray);
+
             Console.Read();
         }
 
@@ -256,6 +266,31 @@ namespace Collections
             Console.WriteLine("Hi {0}, I would like to introduce {1} to you", friendsAndFamilyArray[1][1], friendsAndFamilyArray[2][1]);
             Console.WriteLine("*****************************************************");
 
+        }
+    
+        public static double ArraysAsParamsExample(int[] gradesArray)
+        {
+            int size = gradesArray.Length;
+            double average;
+            int sum = 0;
+
+            for (int i = 0; i < size; i++)
+            {
+                sum += gradesArray[i];
+            }
+
+            average = (double)sum / size;
+            return average;
+        }
+    
+        public static void ArraysAsParamsExampleChallenge(int[] x)
+        {
+            for(int i = 0; i < x.Length; i++)
+            {
+                x[i] += 2;
+                Console.WriteLine("ArraysAsParamsExampleChallenge " + x[i]);
+            }
+            Console.WriteLine("*****************************************************");
         }
     }
 }
