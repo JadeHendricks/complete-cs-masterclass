@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace Collections
 {
@@ -60,6 +61,8 @@ namespace Collections
             Console.WriteLine("The minimum is :{0} ", min2);
             Console.WriteLine("*****************************************************");
 
+            //arraylistmethods
+            ArrayListsExample();
 
             Console.Read();
         }
@@ -336,5 +339,48 @@ namespace Collections
             return min;
         }
         
+        public static void ArrayListsExample()
+        {
+            //decalring an array list
+            //we can find this in System.Collections
+            ArrayList myArrayList = new ArrayList(); //with undefined amount of objects
+            ArrayList myArrayList2 = new ArrayList(100); //with defined amount of objects
+
+            myArrayList.Add(1);
+            myArrayList.Add("chicken");
+            myArrayList.Add(128);
+            myArrayList.Add("Hello");
+            myArrayList.Add(13.37);
+            myArrayList.Add(128);
+
+            //this will delete a specific entry from the array list that is passed to it - only the first one found
+            myArrayList.Remove(128);
+            //delete element at specific position
+            myArrayList.RemoveAt(0);
+            //find out how many elements are inside of your arraylist
+
+            Console.WriteLine("You currently have {0} elements inside of your array list", myArrayList.Count);
+            Console.WriteLine("****************************************");
+
+            double sum = 0;
+
+            //we can use object here as everything comes from obj and is our highest class
+            foreach (object obj in myArrayList)
+            {
+                if (obj is int) {
+                    sum += Convert.ToDouble(obj);
+                } else if (obj is double)
+                {
+                    sum += (double)obj;
+                }
+                else if (obj is string)
+                {
+                    Console.WriteLine(obj);
+                }
+            }
+            //display the total of all numbers
+            Console.WriteLine(sum);
+            Console.WriteLine("****************************************");
+        }
     }
 }
