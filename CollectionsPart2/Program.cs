@@ -194,6 +194,31 @@ namespace CollectionsPart2
                 Console.WriteLine("Employee Age: {0}", employeeValue.Age);
                 Console.WriteLine("Employee Salary: {0}", employeeValue.Salary);
             }
+            Console.WriteLine("***********************************************");
+
+            //update a certain key in a dictionary
+            string keyToUpdate = "HR";
+            if (employeesDirectory.ContainsKey(keyToUpdate))
+            {
+                employeesDirectory[keyToUpdate] = new Employee("HR", "Eleka", 26, 18);
+                Console.WriteLine("Employee with Role/key {0} was updated!", keyToUpdate);
+            } else
+            {
+                Console.WriteLine("No employee found with this key: {0}", keyToUpdate);
+            }
+
+            Console.WriteLine("***********************************************");
+
+            //remove an item from our dictionary
+            string keyToRemove = "Intern";
+            //remove here returns a boolean if something was removed so we can use it here inside of the if statement
+            if (employeesDirectory.Remove(keyToRemove))
+            {
+                Console.WriteLine("Employee with Role/Key {0} was removed!", keyToRemove);
+            } else
+            {
+                Console.WriteLine("No employee found with this key: {0}", keyToRemove);
+            }
 
             Console.WriteLine("***********************************************");
         }
