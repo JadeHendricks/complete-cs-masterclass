@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Channels;
 
 namespace CollectionsPart2
 {
@@ -12,6 +13,7 @@ namespace CollectionsPart2
             HashTablesExample();
             HashTablesChallenge();
             DictionariesExample();
+            StacksExamples();
             Console.Read();
         }
 
@@ -221,6 +223,72 @@ namespace CollectionsPart2
             }
 
             Console.WriteLine("***********************************************");
+        }
+    
+        public static void StacksExamples()
+        {
+            //a stack could hold any type of Object(strings, your own classes etc) but only one type per stack!!(bc it's a  generic)
+            //defining a stack
+            Stack<int> stack = new Stack<int>();
+            //add elements to the stack using push()
+            //then using peak to see what is the top level entry
+
+            stack.Push(1);
+            Console.WriteLine("Top value in the stack is : {0}", stack.Peek());
+
+            stack.Push(2);
+            Console.WriteLine("Top value in the stack is : {0}", stack.Peek());
+
+            stack.Push(3);
+            Console.WriteLine("Top value in the stack is : {0}", stack.Peek());
+
+            //checking if there is things in the stack before doing trying to remove anything
+            if (stack.Count > 0)
+            {
+                int myStackedItem = stack.Pop(); //return the object on top othe stack
+                Console.WriteLine("Popped item: {0}", myStackedItem);
+                Console.WriteLine("Top value in the stack is : {0}", stack.Peek());
+            }
+            Console.WriteLine("***********************************************");
+
+            //while loop that deletes all the items from the stack
+            //THIS DOES NOT FOLLOW THE LIFO
+            while(stack.Count > 0)
+            {
+                //pop will retrun the element that was removed fromt he stack
+                Console.WriteLine("The top value {0} was removed from the stack", stack.Pop());
+                //print the stack count
+                Console.WriteLine("Current stack count is: {0}", stack.Count);
+            }
+
+            Console.WriteLine("***********************************************");
+
+            //adding numbers to a stack
+            int[] numbers = new int[] { 8, 2, 3, 4, 7, 6, 2 };
+            //defining a stack of int
+            Stack<int> myIntStack = new Stack<int>();
+
+            Console.WriteLine("The numbers in the array are :");
+            foreach(int number in numbers)
+            {
+                //print it
+                Console.Write(number + " ");
+                //push it into our stack(add)
+                myIntStack.Push(number);
+            }
+
+            Console.WriteLine("***********************************************");
+
+            //reverse an array of values with a stack
+            Console.WriteLine("The numbers in reverse :");
+            //as long as the stack is not empty
+            while(myIntStack.Count > 0)
+            {
+                //pop it and store it in a variable
+                int number = myIntStack.Pop();
+                //print the value we popped
+                Console.Write(number + " ");
+            }
         }
     }
 }
