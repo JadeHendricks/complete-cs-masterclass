@@ -14,6 +14,9 @@ namespace CollectionsPart2
             HashTablesChallenge();
             DictionariesExample();
             StacksExamples();
+            QueuesExamples();
+            QueuesExamples2();
+
             Console.Read();
         }
 
@@ -269,7 +272,8 @@ namespace CollectionsPart2
             Stack<int> myIntStack = new Stack<int>();
 
             Console.WriteLine("The numbers in the array are :");
-            foreach(int number in numbers)
+            Console.WriteLine("***********************************************");
+            foreach (int number in numbers)
             {
                 //print it
                 Console.Write(number + " ");
@@ -288,6 +292,96 @@ namespace CollectionsPart2
                 int number = myIntStack.Pop();
                 //print the value we popped
                 Console.Write(number + " ");
+            }
+            Console.WriteLine("***********************************************");
+        }
+    
+        public static void QueuesExamples()
+        {
+            //defining a queue of integers
+            Queue<int> queue = new Queue<int>();
+
+            //printing the element at the front of the queue
+            queue.Enqueue(1);
+            Console.WriteLine("The value at the front of the queue is : {0}", queue.Peek());
+            queue.Enqueue(2);
+            Console.WriteLine("The top value in the queue is : {0}", queue.Peek());
+            queue.Enqueue(3);
+            //removes 1 from the queue in this case
+            int queuedItem = queue.Dequeue();
+            Console.WriteLine("The top value in the queue is : {0} and {1} was removed from the front", queue.Peek(), queuedItem);
+
+            Console.WriteLine("***********************************************");
+
+            while (queue.Count > 0)
+            {
+                //Dequeue() will return the element that was removed from the queue
+                Console.WriteLine("The front value {0} was removed from the queue", queue.Dequeue());
+                //print the queue count
+                Console.WriteLine("Current queue count is : {0}", queue.Count);
+            }
+
+            Console.WriteLine("***********************************************");
+        }
+
+
+        //methods we need for the QueuesExamples2 to work
+        //return an order array
+        static Order[] ReceiveOrdersFromBranch1()
+        {
+            Order[] orders = new Order[]
+            {
+                //key = id, value = orders
+                new Order(1,5),
+                new Order(2,4),
+                new Order(6,10),
+            };
+
+            return orders;
+        }
+
+        //return an order array
+        static Order[] ReceiveOrdersFromBranch2()
+        {
+            Order[] orders = new Order[]
+            {
+                //key = id, value = orders
+                new Order(2,5),
+                new Order(4,4),
+                new Order(5,10),
+            };
+
+            return orders;
+        }
+
+        //getting orders ands toring them into a queue
+        //then running through the queue and processing each order using  FIFO
+        public static void QueuesExamples2()
+        {
+            Queue<Order> ordersQueue = new Queue<Order>();
+
+            //Enqueue all orders from branch1
+            foreach (Order order in ReceiveOrdersFromBranch1())
+            {
+                //add each order to the queue
+                ordersQueue.Enqueue(order);
+            }
+
+            //Enqueue all orders from branch2
+            foreach (Order order in ReceiveOrdersFromBranch2())
+            {
+                //add each order to the queue
+                ordersQueue.Enqueue(order);
+            }
+
+            //as long as the queue is not empty
+            while(ordersQueue.Count > 0)
+            {
+                //remove the order at the front of the queue
+                //and store it in a variable called currentOrder
+                Order currentOrder = ordersQueue.Dequeue();
+                //process the order
+                currentOrder.ProcessOrder();
             }
         }
     }
