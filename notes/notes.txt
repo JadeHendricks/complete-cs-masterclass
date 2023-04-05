@@ -13,3 +13,36 @@ Console.ReadKey() - Takes a single input of the type string and it returns the K
 Cheatsheet
 ============================================
 https://cheatography.com/laurence/cheat-sheets/c/
+
+Stacks and Queues
+============================================
+
+Stacks and Queues are data structures - each data structure has a unique way of storing and accessing the data
+
+Stacks -
+
+- data can be added/removed from the top
+- can't access the elements in the middle of the stack
+- first come last out, or last in first out (LIFO) - as in taking off the top of the stack only
+--- WHY?
+- Reversing data (take in data fromt he user and start removing data from the stack from the top = reversing the order)
+- Web browser back buttons, pressing back button will load the page you were on before
+- undo and redo buttons - where a stack stores what was performed and undoing what was performed
+--- Stack Operations
+- Push(Object obj) - Add data to the stack on top
+- Pop(Object obj) - Remove data from the top of the stack
+- Peek(Object obj) - Will return the data on top of the stack without removing it
+
+Queues -
+- data can be added from the rear(back) and removed from the front of the queue
+- We use queues when the order of the data is important
+- data can only be added from the back and only removed from the front and can't be accessed in the middle
+- First in first out (FIFO)
+--- WHY?
+- OS (Operating systems) - mouse movements, io requests etc (they get executed in the order they came in)
+- Managing web requests in a server
+- Queuing input in video games, fighting games etcetc for combos
+--- Queues Operations
+- Enqueue(Object obj) - used to add data to the back of the queue
+- Object Dequeue() - can removed data from the front using this method
+- Object Peek() - will the objects or data in the front of the queue without remvoing it
