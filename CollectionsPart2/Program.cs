@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CollectionsPart2
 {
@@ -9,6 +11,7 @@ namespace CollectionsPart2
         {
             HashTablesExample();
             HashTablesChallenge();
+            DictionariesExample();
             Console.Read();
         }
 
@@ -95,6 +98,104 @@ namespace CollectionsPart2
             }
 
             Console.WriteLine("************************************");
+        }
+    
+        public static void DictionariesExample()
+        {
+            //example of a database of employees
+            //internally these vlaues will all be set at a number weven if we don't decalre an id
+            Employee[] employees =
+            {
+                new Employee("CEO", "Gwyn", 95, 200),
+                new Employee("Manager", "Joe", 35, 25),
+                new Employee("HR", "Lora", 32, 21),
+                new Employee("Secretary", "Petra", 28, 18),
+                new Employee("Lead Developer", "Artorias", 55, 35),
+                new Employee("Intern", "Ernest", 22, 8),
+            };
+
+            //the generic verison of a hashtabe is a dictionary
+            //creating a dictionary - Dictionary<TKey, TValue> (we need to define the type of the key and value)
+            //Example
+            Dictionary<int, string> myDictionary = new Dictionary<int, string>()
+            {
+                { 1, "one" },
+                { 2, "two" },
+                { 3, "three" }
+            };
+
+            Dictionary<string, Employee> employeesDirectory = new Dictionary<string, Employee>();
+            //looping through employees array and add it to the employees directory - key being the role and value being the employee themeselves
+            foreach (Employee employee in employees)
+            {
+                employeesDirectory.Add(employee.Role, employee);
+            }
+
+            //checking if the key exists
+            string key1 = "CEO";
+            string key2 = "Lead Developer";
+
+            if (employeesDirectory.ContainsKey(key1))
+            {
+                //getting data from a dictionary
+                Employee ceo = employeesDirectory[key1];
+                Console.WriteLine("Employee Name: {0}, Role: {1}, Salary: 2", ceo.Name, ceo.Role, ceo.Salary);
+                if (employeesDirectory.ContainsKey(key2))
+                {
+                    //getting data from a dictionary
+                    Employee leadDeveloper = employeesDirectory[key2];
+                    Console.WriteLine("Employee Name: {0}, Role: {1}, Salary: 2", leadDeveloper.Name, leadDeveloper.Role, leadDeveloper.Salary);
+                }
+            } else
+            {
+                Console.WriteLine("The key that you have entered. Does not exist.");
+            }
+
+            Console.WriteLine("***********************************************");
+
+            //using TryGetValue()
+            //using TryGetValue() it returns true if the operation was successful and false otherwise
+            Employee result = null;
+
+            if (employeesDirectory.TryGetValue("Intern", out result))
+            {
+                Console.WriteLine("Value Retrieved - TryGetValue() example");
+
+                Console.WriteLine("Employee Name: {0}", result.Name);
+                Console.WriteLine("Employee Role: {0}", result.Role);
+                Console.WriteLine("Employee Age: {0}", result.Age);
+                Console.WriteLine("Employee Salary: {0}", result.Salary);
+            } else
+            {
+                Console.WriteLine("The key entered does not exist");
+            }
+
+            Console.WriteLine("***********************************************");
+
+            Console.WriteLine("ElementAt EXAMPLE = ");
+            //using ElementAt() to loop over dictionaries
+            //count give the number of key value pairs there are in a dictionary
+            for (int i = 0; i < employeesDirectory.Count; i++)
+            {
+                //using ElementAt(i) to return the keyvalue pair store in index 1 - or what ever the ounter is at
+                //get the key value pairs. ElementAt returns a keyvalue pair that we need to store
+                KeyValuePair<string, Employee> keyValuePair = employeesDirectory.ElementAt(i);
+
+                //print the key
+                Console.WriteLine("Key: {0}, i is {1}", keyValuePair.Key, i);
+                //storing the properties into a employee object
+                //value gets the value inside of the key value pair
+                //key here is a string and value is the employee itself
+                Employee employeeValue = keyValuePair.Value;
+
+                //printing the properties of the employee objecy
+                Console.WriteLine("Employee Name: {0}", employeeValue.Name);
+                Console.WriteLine("Employee Role: {0}", employeeValue.Role);
+                Console.WriteLine("Employee Age: {0}", employeeValue.Age);
+                Console.WriteLine("Employee Salary: {0}", employeeValue.Salary);
+            }
+
+            Console.WriteLine("***********************************************");
         }
     }
 }
