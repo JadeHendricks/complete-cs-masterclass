@@ -24,6 +24,15 @@ namespace InheritenceAndMoreOOP
             dog.Eat();
 
             Console.WriteLine("******************************");
+
+            Post post1 = new Post("Thanks everyone for the birthday wishes", true, "Jade Hendricks");
+            Console.WriteLine(post1.ToString());
+
+            Console.WriteLine("******************************");
+
+            ImagePost imagePost1 = new ImagePost("Check out my new shoes", "Jade Hendricks", "https://images.com/shoes", true);
+            Console.WriteLine(imagePost1.ToString());
+
         }
     }
 }
