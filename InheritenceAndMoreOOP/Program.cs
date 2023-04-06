@@ -6,7 +6,14 @@ namespace InheritenceAndMoreOOP
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Radio myRadio = new Radio(false, "Sony");
+            myRadio.SwitchOn();
+            myRadio.ListenRadio();
+
+            Console.WriteLine("******************************");
+
+            TV myTV = new TV(false, "LG");
+            myTV.WatchTV();
         }
     }
 }
