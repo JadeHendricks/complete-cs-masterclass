@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Interfaces
 {
@@ -36,6 +37,29 @@ namespace Interfaces
 
             IEnumeratorAndIEnumerable();
 
+            Console.WriteLine("********************************");
+
+            IEnumerable<int> unkownCollection;
+            unkownCollection = IEnumeratorAndIEnumerableExample1(1);
+            Console.WriteLine("This is a List<int>");
+            //foreach number in the collection we got back from GetCollection(1);
+            foreach(int num in unkownCollection)
+            {
+                Console.Write(num + " ");
+            }
+
+            Console.WriteLine("********************************");
+
+            //call GetCollection with option = 2 will return a Queue<int>
+            //but we will store it in a base type of generic colleciions
+            unkownCollection = IEnumeratorAndIEnumerableExample1(2);
+            Console.WriteLine("This is a Queue<int>");
+            //foreach number in the collection we got back from GetCollection(2);
+            foreach (int num in unkownCollection)
+            {
+                Console.Write(num + " ");
+            }
+
         }
 
         /// <summary>
@@ -71,6 +95,34 @@ namespace Interfaces
                 }
             }
 
+        }
+
+        //this way we don't care if it's a list, a queue etc because they all use IEnumarable and we will be able to loop over them regardless.
+        static IEnumerable<int> IEnumeratorAndIEnumerableExample1(int option)
+        {
+            //create a list of numbers and init it
+            List<int> numbersList = new List<int>() { 1,2,3,4,5 };
+
+            Queue<int> numbersQueue = new Queue<int>();
+            //adding values to the queue - FIFO
+            numbersQueue.Enqueue(6);
+            numbersQueue.Enqueue(7);
+            numbersQueue.Enqueue(8);
+            numbersQueue.Enqueue(9);
+            numbersQueue.Enqueue(10);
+
+            //if option 1
+            if (option == 1)
+            {
+                return numbersList;
+            } else if (option == 2)
+            {
+                return numbersQueue;
+            } else
+            {
+                //return an array of numbers init with some numbers
+                return new int[] { 11,12,13,14,15 };
+            }
         }
     }
 }
