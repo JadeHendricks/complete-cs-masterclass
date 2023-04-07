@@ -21,7 +21,9 @@ namespace Polymorphism
             Console.WriteLine("The HP is : {0} and the Color is : {1}, the brand is {2} and the model is {3}", this.HP, this.Color, this.Brand, this.Model);
         }
 
-        public override void Repair()
+        //when using sealed here you won't allow any derived children to override this method (closes it up for further inheritence)
+        //this (sealed) can also be used on classes - see M3 class for an example
+        public sealed override void Repair()
         {
             Console.WriteLine("The BMW {0} was repaired!", this.Model);
         }
