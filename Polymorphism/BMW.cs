@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Polymorphism
 {
+    //a BMW is a car
     internal class BMW : Car
     {
         public string Model { get; set; }
