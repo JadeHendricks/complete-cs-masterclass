@@ -60,6 +60,21 @@ namespace Interfaces
                 Console.Write(num + " ");
             }
 
+            Console.WriteLine("********************************");
+
+            //a list of type List<int> init with some numbers
+            List<int> numberList = new List<int>() { 8,6,2};
+            //an array of type int[] initialized with some numbers
+            int[] numberArray = new int[] { 1, 7, 1, 3 };
+
+            //call method and pass a list to it
+            IEnumeratorAndIEnumerableExample2(numberList);
+
+            Console.WriteLine("********************************");
+
+            //call method and pass a numbers array to it
+            IEnumeratorAndIEnumerableExample2(numberArray);
+
         }
 
         /// <summary>
@@ -123,6 +138,23 @@ namespace Interfaces
                 //return an array of numbers init with some numbers
                 return new int[] { 11,12,13,14,15 };
             }
+        }
+
+        //with this method we can pass any type of collection to it that implements the IEnumerable interface
+        static void IEnumeratorAndIEnumerableExample2(IEnumerable<int> anyCollection)
+        {
+            //sum variable to store the sum of the nubmers in anyCollection
+            int sum = 0;
+
+            //fro each number in the collection passed to this method
+            foreach (int num in anyCollection)
+            {
+                //add the num value to the sum
+                sum += num;
+            }
+
+            //print the sum
+            Console.WriteLine("Sum is {0}", sum);
         }
     }
 }
