@@ -35,3 +35,7 @@
 /Interfaces/bin
 /Interfaces/obj/debug
 /Interfaces/obj/Release
+
+/Polymorphism/bin
+/Polymorphism/obj/debug
+/Polymorphism/obj/Release
