@@ -25,6 +25,12 @@ namespace AdvancedCSharpTopics
             }
         }
 
+        //basically a list of constants
+        //need to be put in the namespace level so that it's more accessbile
+        enum Day { Mo, Tu, We, Th, Fr, Sa, Su };
+        //this enum will start at value 1 and when we get to 12 it will continue from 12
+        enum Month { Jan = 1, Feb, Mar, Apr, May, Jun, Jul = 12, Aug, Sep, Oct, Nov, Dec };
+
         static void Main(string[] args)
         {
             Game game1;
@@ -35,7 +41,20 @@ namespace AdvancedCSharpTopics
 
             game1.Display();
 
+            //enums
+            EnumsExample();
+        }
 
+        public static void EnumsExample()
+        {
+            Day fr = Day.Fr;
+            Day su = Day.Su;
+
+            Day a = Day.Fr;
+
+            Console.WriteLine(fr == a);
+            Console.WriteLine((int)Day.Mo); //0 is the first in the enum value wise
+            Console.WriteLine((int)Month.Feb);
         }
     }
 }
