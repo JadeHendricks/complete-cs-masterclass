@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Polymorphism
 {
@@ -53,8 +54,8 @@ namespace Polymorphism
 
             //Abstract classes
             AbstractClassesExample();
-
-
+            ReadFromTextFile();
+            WriteTextToFile();
         }
 
         public static void AbstractClassesExample()
@@ -97,6 +98,50 @@ namespace Polymorphism
 
             }
             Console.WriteLine("****************************************");
+        }
+
+        public static void ReadFromTextFile()
+        {
+            //IO = Input Output
+            //example 1 - reading text
+            string text = System.IO.File.ReadAllText(@"C:\Users\hendr\Desktop\repos\complete-cs-masterclass\notes\textfile.txt");
+            Console.WriteLine("Textfile contains the following text: {0}", text);
+
+            //example 2 - reading text per line
+            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\hendr\Desktop\repos\complete-cs-masterclass\notes\textfile.txt");
+            Console.WriteLine("Contents of textfile.txt = ");
+            foreach (string line in lines)
+            {
+                Console.WriteLine("\t" + line);
+            }
+
+            Console.WriteLine("****************************************");
+        }
+
+        public static void WriteTextToFile()
+        {
+            //example 1
+            string[] lines = { "First 250", "Second 242", "Third 240" };
+            File.WriteAllLines(@"C:\Users\hendr\Desktop\repos\complete-cs-masterclass\notes\highscores.txt", lines);
+
+            //example 2
+            Console.WriteLine("Please give the file a name:");
+            string fileName = Console.ReadLine();
+            Console.WriteLine("Please enter the text for the file.");
+            string input = Console.ReadLine();
+            File.WriteAllText(@"C:\Users\hendr\Desktop\repos\complete-cs-masterclass\notes\" + fileName + ".txt", input);
+
+            //example 3
+            using(StreamWriter file = new StreamWriter(@"C:\Users\hendr\Desktop\repos\complete-cs-masterclass\notes\thirdOnlyTextFile.txt"))
+            {
+                foreach (string line in lines)
+                {
+                    if (line.Contains("Third"))
+                    {
+                        file.WriteLine(line);
+                    }
+                }
+            }
         }
     }
 }

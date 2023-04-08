@@ -45,4 +45,12 @@ Queues -
 --- Queues Operations
 - Enqueue(Object obj) - used to add data to the back of the queue
 - Object Dequeue() - can removed data from the front using this method
-- Object Peek() - will the objects or data in the front of the queue without remvoing it
+- Object Peek() - will the objects or data in the front of the queue without removing it
+
+
+Interfaces vs Abstract Classes
+============================================
+
+Abstract - what a object is
+Interface - what a object can do
+
