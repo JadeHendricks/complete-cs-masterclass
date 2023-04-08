@@ -22,6 +22,7 @@ namespace AdvancedCSharpTopics
                 Console.WriteLine("Game 1 was developed by : {0}", developer);
                 Console.WriteLine("Game 1's rating is : {0}", rating);
                 Console.WriteLine("Game 1 was released in : {0}", releaseDate);
+                Console.WriteLine("********************************************");
             }
         }
 
@@ -43,6 +44,7 @@ namespace AdvancedCSharpTopics
 
             //enums
             EnumsExample();
+            NullableExample();
         }
 
         public static void EnumsExample()
@@ -55,6 +57,45 @@ namespace AdvancedCSharpTopics
             Console.WriteLine(fr == a);
             Console.WriteLine((int)Day.Mo); //0 is the first in the enum value wise
             Console.WriteLine((int)Month.Feb);
+            Console.WriteLine("********************************************");
+        }
+
+        //allows a value to have a value or to not have a value without complaining about assigning a value to it
+        //allows the values to be set to a default value
+        public static void NullableExample()
+        {
+            int? num1 = null;
+            int? num2 = 1337;
+
+            double? num3 = new Double?();
+            double? num4 = 3.14157;
+
+            bool? boolValue = new bool?();
+
+            bool? isMale = new bool?();
+
+            if (isMale == true)
+            {
+                Console.WriteLine("User is Male");
+            }
+            else if (isMale == false)
+            {
+                Console.WriteLine("User is female");
+            } else
+            {
+                Console.WriteLine("No Gender chosen");
+            }
+
+            //The Null coalescing operator
+            //if the number is null take the number given else use the number that was assigned to it
+            double num8 = num3 ?? 8.21;
+            double num9 = num4 ?? 8.21;
+
+            Console.WriteLine("Our nullable numbers are: {0},{1},{2},{3}", num1, num2, num3, num4);
+            Console.WriteLine("The nullable boolean value is {0}", boolValue);
+            Console.WriteLine("Value of num8 : {0}", num8);
+            Console.WriteLine("Value of num8 : {0}", num9);
+            Console.WriteLine("********************************************");
         }
     }
 }
