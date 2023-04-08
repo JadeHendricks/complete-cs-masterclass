@@ -48,6 +48,55 @@ namespace Polymorphism
             //forcing the bmw to use the Car Method
             Car carB = (Car)bmwM5;
             carB.ShowDetails();
+
+            Console.WriteLine("****************************************");
+
+            //Abstract classes
+            AbstractClassesExample();
+
+
+        }
+
+        public static void AbstractClassesExample()
+        {
+            Shape[] shapes =
+            {
+                new Sphere(4),
+                new Cube(3)
+            };
+
+            foreach (Shape shape in shapes)
+            {
+                shape.GetInfo();
+                Console.WriteLine("{0} has a volume of {1}", shape.Name, shape.Volume());
+
+                //we use the as keyword here in order to create a variable as a certain type
+                //and if the loop sees it as a cube it will not be null
+                Cube iceCube = shape as Cube;
+
+                if (iceCube == null)
+                {
+                    Console.WriteLine("This shape is no cube");
+                }
+
+                //we use is here to check if a variable is of a certain type
+                if (shape is Cube)
+                {
+                    Console.WriteLine("This shape is a cube");
+                }
+
+                //casting from an object to a cube
+                //this only works if the object actaully contains a Cube
+                object cube1 = new Cube(7);
+                //I want to create a new cube called cube 2
+                //and I want to cast cube1 into a cube
+                //this will only work if cube1 is actually a cube
+                Cube cube2 = (Cube)cube1;
+
+                Console.WriteLine("{0} has a volume of {1}", cube2.Name, cube2.Volume());
+
+            }
+            Console.WriteLine("****************************************");
         }
     }
 }
