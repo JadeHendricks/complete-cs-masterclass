@@ -54,3 +54,9 @@ Interfaces vs Abstract Classes
 Abstract - what a object is
 Interface - what a object can do
 
+Access Modifiers
+============================================
+Private - Only accessible inside a class it's in or struct
+Public - Accessible from everywhere in your project
+Protected - Accessible from the class and all classes that's derived from it
+Internal - Accessible from it's assembly (project)
