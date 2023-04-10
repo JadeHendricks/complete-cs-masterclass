@@ -8,7 +8,7 @@ namespace EventsAndDelegates
         static void Main(string[] args)
         {
             DelegatesBasicsExample();
-            CreateOurOwnDelegates();
+            CreateOurOwnDelegatesAndAnonymousMethods();
         }
 
         public static void DelegatesBasicsExample()
@@ -46,7 +46,7 @@ namespace EventsAndDelegates
         //our delegate will take a person as a param and return a boolean regarding the ages met
         public delegate bool FilterDelegate(Person p);
 
-        public static void CreateOurOwnDelegates()
+        public static void CreateOurOwnDelegatesAndAnonymousMethods()
         {
             Person p1 = new Person() { Name = "Aiden", Age = 41 };
             Person p2 = new Person() { Name = "Sif", Age = 69 };
@@ -60,6 +60,39 @@ namespace EventsAndDelegates
             DisplayPeople("Adults", people, IsAdult);
             Console.WriteLine("----Seniors----");
             DisplayPeople("Senior", people, IsSenior);
+
+            //using an anonymous function
+
+            //here we create a new varialbe called filter of type FilterDelegate.
+            //Then we assign an anonymous method to it instead of already defined method
+            FilterDelegate filter = delegate (Person person)
+            {
+                return person.Age >= 20 && person.Age <= 30;
+            };
+            Console.WriteLine("----Between 20 and 30 with anonymous method----");
+            DisplayPeople("Between 20 and 30 : ", people, filter);
+            Console.WriteLine("----All people with anonymous method part 2----");
+            DisplayPeople("Between 20 and 30 : ", people, delegate (Person person) { return true; });
+
+            //Lambda Expressions
+            //statement Lambda - a search jeyword to filter the names
+            string searchKeyword = "A";
+            Console.WriteLine("----age > 20 with searchKeyword----");
+            DisplayPeople("age > 20 with search keyword:" + searchKeyword, people, (p) => 
+            { 
+                if (p.Name.Contains(searchKeyword) && p.Age > 20)
+                {
+                    return true;
+                } else
+                {
+                    return false;
+                }
+            });
+
+            //expression lambda
+            //one line of code
+            Console.WriteLine("----Exaclty 25----");
+            DisplayPeople("Exactly 25:", people, p => p.Age == 25);
         }
 
         //A method to display a list of people that passes the filter condition (return true)
