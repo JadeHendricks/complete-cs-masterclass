@@ -93,6 +93,10 @@ namespace EventsAndDelegates
             //one line of code
             Console.WriteLine("----Exaclty 25----");
             DisplayPeople("Exactly 25:", people, p => p.Age == 25);
+
+            //we can store a lambda as a variable
+            //example - Func<int, int> PlusOne = (a) => a+1;
+            //and we call it like this - int res = PlusOne(3);
         }
 
         //A method to display a list of people that passes the filter condition (return true)
