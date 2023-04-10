@@ -9,6 +9,32 @@ namespace EventsAndDelegates
         {
             DelegatesBasicsExample();
             CreateOurOwnDelegatesAndAnonymousMethods();
+
+            Console.WriteLine("---- Game PART ----");
+
+            PlayTheGame();
+        }
+
+        public static void PlayTheGame()
+        {
+            //create an audio system
+            AudioSystem audioSystem = new AudioSystem();
+            //create a rendering engine
+            RenderingEngine renderingEngine = new RenderingEngine();
+
+            //create two players and give them Id's
+            Player player1 = new Player("SteelCow");
+            Player player2 = new Player("DoggoSilva");
+            Player player3 = new Player("JimmyNeutron");
+
+            //Triggering the game event - subscribing and running everything that was added to the subscription
+            GameEventManager.TriggerGameStart();
+
+            Console.WriteLine("Game is running....Press any key to end the game");
+
+            Console.Read();
+            //Triggering the game event - subscribing and running everything that was added to the subscription
+            GameEventManager.TriggerGameOver();
         }
 
         public static void DelegatesBasicsExample()
