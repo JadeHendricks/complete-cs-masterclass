@@ -15,13 +15,14 @@ namespace EventsAndDelegates
         public delegate void GameEvent();
 
         //create two delegates variables called OnGameStart and OnGameOver
-        public static GameEvent OnGameStart, OnGameOver;
+        //using event keyword here will prevent us from overwritting our events in other classes if that is something that is required
+        public static event GameEvent OnGameStart, OnGameOver;
 
         //adding two public static methods to trigger the methods in our main method
         //a static method to trigger OnGameStart
         public static void TriggerGameStart()
         {
-            //check if the OnGameStart event is ot empty, meaning that other methods are already subscribed
+            //check if the OnGameStart event is to empty, meaning that other methods are already subscribed
             if (OnGameStart != null)
             {
                 //print simple message
