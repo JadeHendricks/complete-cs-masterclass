@@ -47,3 +47,7 @@
 /EventsAndDelegates/bin
 /EventsAndDelegates/obj/debug
 /EventsAndDelegates/obj/Release
+
+/ThreadsAndTasks/bin
+/ThreadsAndTasks/obj/debug
+/ThreadsAndTasks/obj/Release
