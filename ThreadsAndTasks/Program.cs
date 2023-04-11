@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -9,7 +10,8 @@ namespace ThreadsAndTasks
         static void Main(string[] args)
         {
             //ThreadBasics();
-            ThreadStartAndEnd();
+            //ThreadStartAndEnd();
+            ThreadPoolsAndBackgroundThreads();
             Console.Read();
         }
 
@@ -68,6 +70,19 @@ namespace ThreadsAndTasks
             //we use this to see if the task ewas successful or not
             var test = taskCompletionSource.Task.Result;
             Console.WriteLine("Task was done: {0}", test);
+        }
+
+        public static void ThreadPoolsAndBackgroundThreads()
+        {
+            Enumerable.Range(0, 1000).ToList().ForEach(f =>
+            {
+                ThreadPool.QueueUserWorkItem((o) =>
+                {
+                    Console.WriteLine($"Thread number: {Thread.CurrentThread.ManagedThreadId} started");
+                    Thread.Sleep(1000);
+                    Console.WriteLine($"Thread number: {Thread.CurrentThread.ManagedThreadId} ended");
+                });
+            });
         }
     }
 }
